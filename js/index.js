@@ -28,10 +28,23 @@ const agregar = () => {
 	console.log(frutas);
 };
 
+// Resta corregir código
+const quitar = () => {
+	let listado = frutas.map((fruta) => fruta.nombre);
+	let mensaje = `Elija entre las siguientes frutas: ${listado}`;
+	alert(mensaje);
+	let nombre = prompt('Ingrese el nombre de la fruta');
+
+	let posicion = frutas.indexOf(nombre.toLowerCase());
+	frutas.splice(posicion, 1);
+
+	console.log(frutas);
+};
+
 //Variables
 let opcion;
 
-//Arrays
+//Array
 const frutas = [
 	{ nombre: 'manzana', precio: 300, cantidad: 400 },
 	{ nombre: 'naranja', precio: 200, cantidad: 300 },
@@ -47,13 +60,18 @@ while (opcion !== 1 && opcion !== 2 && opcion !== 3) {
 	inicio();
 }
 
-console.log(opcion);
-
 if (opcion === 1) {
 	agregar();
 	let respuestain = prompt('Desea agregar más productos?');
 	while (respuestain.toLowerCase() === 'si') {
 		agregar();
 		respuestain = prompt('Desea agregar más productos?');
+	}
+} else if (opcion === 2) {
+	quitar();
+	let respuestaout = prompt('Desea quitar más productos?');
+	while (respuestaout.toLowerCase() === 'si') {
+		quitar();
+		respuestaout = prompt('Desea quitar más productos?');
 	}
 }
