@@ -2,9 +2,10 @@
 const inicio = () => {
 	opcion = parseInt(
 		prompt(
-			'Si desea agregar un producto ingrese 1 \n' +
-				'si desea quitar un producto ingrese 2 \n' +
-				'y si desea buscar un producto ingrese 3'
+			'Si desea agregar un producto, ingrese 1. \n' +
+				'Si desea quitar un producto, ingrese 2. \n' +
+				'Si desea buscar información de un producto, ingrese 3. \n' +
+				'Si desea salir, ingrese 4.'
 		)
 	);
 	return;
@@ -41,6 +42,24 @@ const quitar = () => {
 	console.log(frutas);
 };
 
+const buscar = () => {
+	let listado = frutas.map((fruta) => fruta.nombre);
+	let aviso = `Frutas en stock: ${listado}`;
+	alert(aviso);
+	let nombre = prompt('Ingrese el nombre de la fruta');
+	let producto = frutas.find((fruit) => fruit.nombre === nombre);
+	let mensaje = `Nombre: ${producto.nombre} 
+    Precio: ${producto.precio}
+    Cantidad: ${producto.cantidad}`;
+	alert(mensaje);
+};
+
+const salir = () => {
+	let saludo = 'Hasta luego';
+	alert(saludo);
+	return;
+};
+
 //Variables
 let opcion;
 
@@ -55,7 +74,7 @@ const frutas = [
 // Código
 inicio();
 
-while (opcion !== 1 && opcion !== 2 && opcion !== 3) {
+while (opcion !== 1 && opcion !== 2 && opcion !== 3 && opcion !== 4) {
 	alert('Ingrese una opción válida');
 	inicio();
 }
@@ -74,4 +93,13 @@ if (opcion === 1) {
 		quitar();
 		respuestaout = prompt('Desea quitar más productos?');
 	}
+} else if (opcion === 3) {
+	buscar();
+	let respuesta = prompt('Desea buscar más productos?');
+	while (respuesta.toLowerCase() === 'si') {
+		buscar();
+		respuesta = prompt('Desea buscar más productos?');
+	}
+} else if (opcion === 4) {
+	salir();
 }
