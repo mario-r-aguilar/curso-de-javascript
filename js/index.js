@@ -36,7 +36,9 @@ const quitar = () => {
 	alert(mensaje);
 	let nombre = prompt('Ingrese el nombre de la fruta');
 
-	let posicion = frutas.indexOf(nombre.toLowerCase());
+	let posicion = frutas.findIndex((item) => {
+		return item.nombre === nombre.toLowerCase();
+	});
 	frutas.splice(posicion, 1);
 
 	console.log(frutas);
