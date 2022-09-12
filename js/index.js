@@ -87,7 +87,6 @@ const salir = () => {
 	let nuevoparrafo = document.createElement('h1');
 	nuevoparrafo.innerHTML = `Hasta luego`;
 	saludo.append(nuevoparrafo);
-	//alert(saludo);
 	return;
 };
 
