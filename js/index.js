@@ -25,11 +25,23 @@ const agregar = () => {
 	let precio = parseInt(prompt('Ingrese el precio'));
 	let cantidad = parseInt(prompt('Indique la cantidad'));
 	let ingreso = new modificacion(nombre.toLowerCase(), precio, cantidad);
+	const frutasagregadas = [];
 	frutas.push(ingreso);
+	frutasagregadas.push(ingreso);
+
+	let agregando = document.getElementById('agregando');
+	for (const fruta of frutasagregadas) {
+		let nuevoparrafo = document.createElement('div');
+		nuevoparrafo.innerHTML = `
+                        <h2>Fruta: ${fruta.nombre}</h2> 
+                        <h3>Precio: ${fruta.precio}</h3>
+                        <h3>Cantidad: ${fruta.cantidad}</h3>`;
+		agregando.append(nuevoparrafo);
+	}
+
 	console.log(frutas);
 };
 
-// Resta corregir código
 const quitar = () => {
 	let listado = frutas.map((fruta) => fruta.nombre);
 	let mensaje = `Elija entre las siguientes frutas: ${listado}`;
@@ -40,6 +52,16 @@ const quitar = () => {
 		return item.nombre === nombre.toLowerCase();
 	});
 	frutas.splice(posicion, 1);
+
+	let stock = document.getElementById('stock');
+	for (const stockfruta of frutas) {
+		let nuevoparrafo = document.createElement('div');
+		nuevoparrafo.innerHTML = `
+                        <h2>Fruta disponible: ${stockfruta.nombre}</h2> 
+                        <h3>Precio: ${stockfruta.precio}</h3>
+                        <h3>Cantidad: ${stockfruta.cantidad}</h3>`;
+		stock.append(nuevoparrafo);
+	}
 
 	console.log(frutas);
 };
