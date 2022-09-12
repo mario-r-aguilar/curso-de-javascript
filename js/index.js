@@ -25,3 +25,6 @@ const frutas = [
 comprar();
 
 console.log(frutas);
+
+/*Comentario del tutor:
+Lo que podrías hacer es que si el producto esta dentro (podes comparar con un some para que te de true o false) sumarle la cantidad con un condicional, si es true, haga esto, y si es false que pushee todo un nuevo producto*/
