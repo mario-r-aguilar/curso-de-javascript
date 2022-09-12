@@ -33,7 +33,7 @@ const agregar = () => {
 	for (const fruta of frutasagregadas) {
 		let nuevoparrafo = document.createElement('div');
 		nuevoparrafo.innerHTML = `
-                        <h2>Fruta: ${fruta.nombre}</h2> 
+                        <h2>Fruta Agregada: ${fruta.nombre}</h2> 
                         <h3>Precio: ${fruta.precio}</h3>
                         <h3>Cantidad: ${fruta.cantidad}</h3>`;
 		agregando.append(nuevoparrafo);
@@ -72,15 +72,22 @@ const buscar = () => {
 	alert(aviso);
 	let nombre = prompt('Ingrese el nombre de la fruta');
 	let producto = frutas.find((fruit) => fruit.nombre === nombre);
-	let mensaje = `Nombre: ${producto.nombre} 
-    Precio: ${producto.precio}
-    Cantidad: ${producto.cantidad}`;
-	alert(mensaje);
+
+	let mensaje = document.getElementById('buscando');
+	let nuevoparrafo = document.createElement('div');
+	nuevoparrafo.innerHTML = `
+    <h2>Fruta: ${producto.nombre}</h2>
+    <h3>Precio: ${producto.precio}</h3>
+    <h3>Cantidad: ${producto.cantidad}</h3>`;
+	mensaje.append(nuevoparrafo);
 };
 
 const salir = () => {
-	let saludo = 'Hasta luego';
-	alert(saludo);
+	let saludo = document.getElementById('despedida');
+	let nuevoparrafo = document.createElement('h1');
+	nuevoparrafo.innerHTML = `Hasta luego`;
+	saludo.append(nuevoparrafo);
+	//alert(saludo);
 	return;
 };
 
