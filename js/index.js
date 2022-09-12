@@ -105,3 +105,10 @@ if (opcion === 1) {
 } else if (opcion === 4) {
 	salir();
 }
+
+/*
+Comentario del tutor:
+Buenas Mario que tal?
+Bueno el trabajo esta de 10! Sin dudas haces un excelente uso de los objetos y los arrays, el manejo que haces para agregar filtrar o quitar esta tremendo!
+No hay demasiado para agregar en si, ya que cumple con todo lo necesario, es una vuelta muy buena para no hacer estrictamente un carrito de compras, ahora lo que resta es ir llevando todo al html, creo que la mejor manera sería agregar botones y que cada uno haga lo que necesites, así como en las opciones de los prompt, y donde cada uno despliegue algún input para poder agregar, otro para filtrar y un cuadro donde se esten mostrando todos los productos y donde los puedas eliminar por medio de un evento
+*/
