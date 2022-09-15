@@ -25,13 +25,25 @@ class modificacion {
 }
 
 const agregar = () => {
-	const validarFormulario = (e) => {
-		e.preventDefault();
+	let formularioAgregar = document.getElementById('formularioAgregar');
+	let codigoFormulario = document.createElement('form');
+	codigoFormulario.innerHTML = `	
+					<label for="nombreFruta">Nombre de la fruta</label>
+					<input id="nombreFruta" type="text" />
+					<label for="precioFruta">Precio de la fruta</label>
+					<input id="precioFruta" type="number" />
+					<label for="cantidadFruta">Cantidad de la fruta</label>
+					<input id="cantidadFruta" type="number" />
+					<input type="submit" value="Agregar" />`;
 
+	formularioAgregar.append(codigoFormulario);
+	formularioAgregar.addEventListener('submit', (e) => {
+		e.preventDefault();
 		let datosIngresados = e.target.children;
-		let nombre = datosIngresados[0].value;
-		let precio = datosIngresados[1].value;
-		let cantidad = datosIngresados[2].value;
+		console.log(datosIngresados);
+		let nombre = datosIngresados[1].value;
+		let precio = datosIngresados[3].value;
+		let cantidad = datosIngresados[5].value;
 
 		let ingreso = new modificacion(nombre, precio, cantidad);
 		const frutasagregadas = [];
@@ -44,15 +56,11 @@ const agregar = () => {
 			nuevoparrafo.innerHTML = `
 			<h2>Fruta Agregada: ${fruta.nombre}</h2> 
 			<h3>Precio: ${fruta.precio}</h3>
-                        <h3>Cantidad: ${fruta.cantidad}</h3>`;
+			<h3>Cantidad: ${fruta.cantidad}</h3>`;
 			agregando.append(nuevoparrafo);
 		}
-
 		console.log(frutas);
-	};
-
-	let formularioAgregar = document.getElementById('formularioAgregar');
-	formularioAgregar.addEventListener('submit', validarFormulario);
+	});
 };
 
 const quitar = () => {
