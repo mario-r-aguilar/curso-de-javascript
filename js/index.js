@@ -25,19 +25,15 @@ class modificacion {
 }
 
 const agregar = () => {
-	/*let nombre = prompt('Ingrese el nombre de la fruta');
-	let precio = parseInt(prompt('Ingrese el precio'));
-	let cantidad = parseInt(prompt('Indique la cantidad'));*/
+	const validarFormulario = (e) => {
+		e.preventDefault();
 
-	const validarFormulario = (a) => {
-		a.preventDefault();
+		let datosIngresados = e.target.children;
+		let nombre = datosIngresados[0].value;
+		let precio = datosIngresados[1].value;
+		let cantidad = datosIngresados[2].value;
 
-		let datosIngresados = a.target;
-		let nombre = datosIngresados.children[0].value;
-		let precio = datosIngresados.children[1].value;
-		let cantidad = datosIngresados.children[2].value;
-
-		let ingreso = new modificacion(nombre.toLowerCase(), precio, cantidad);
+		let ingreso = new modificacion(nombre, precio, cantidad);
 		const frutasagregadas = [];
 		frutas.push(ingreso);
 		frutasagregadas.push(ingreso);
@@ -54,6 +50,7 @@ const agregar = () => {
 
 		console.log(frutas);
 	};
+
 	let formularioAgregar = document.getElementById('formularioAgregar');
 	formularioAgregar.addEventListener('submit', validarFormulario);
 };
