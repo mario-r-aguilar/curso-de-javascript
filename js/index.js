@@ -40,7 +40,6 @@ const agregar = () => {
 	formularioAgregar.addEventListener('submit', (e) => {
 		e.preventDefault();
 		let datosIngresados = e.target.children;
-		console.log(datosIngresados);
 		let nombre = datosIngresados[1].value;
 		let precio = datosIngresados[3].value;
 		let cantidad = datosIngresados[5].value;
