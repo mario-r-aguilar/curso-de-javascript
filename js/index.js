@@ -25,25 +25,37 @@ class modificacion {
 }
 
 const agregar = () => {
-	let nombre = prompt('Ingrese el nombre de la fruta');
+	/*let nombre = prompt('Ingrese el nombre de la fruta');
 	let precio = parseInt(prompt('Ingrese el precio'));
-	let cantidad = parseInt(prompt('Indique la cantidad'));
-	let ingreso = new modificacion(nombre.toLowerCase(), precio, cantidad);
-	const frutasagregadas = [];
-	frutas.push(ingreso);
-	frutasagregadas.push(ingreso);
+	let cantidad = parseInt(prompt('Indique la cantidad'));*/
 
-	let agregando = document.getElementById('agregando');
-	for (const fruta of frutasagregadas) {
-		let nuevoparrafo = document.createElement('div');
-		nuevoparrafo.innerHTML = `
-                        <h2>Fruta Agregada: ${fruta.nombre}</h2> 
-                        <h3>Precio: ${fruta.precio}</h3>
+	const validarFormulario = (a) => {
+		a.preventDefault();
+
+		let datosIngresados = a.target;
+		let nombre = datosIngresados.children[0].value;
+		let precio = datosIngresados.children[1].value;
+		let cantidad = datosIngresados.children[2].value;
+
+		let ingreso = new modificacion(nombre.toLowerCase(), precio, cantidad);
+		const frutasagregadas = [];
+		frutas.push(ingreso);
+		frutasagregadas.push(ingreso);
+
+		let agregando = document.getElementById('agregando');
+		for (const fruta of frutasagregadas) {
+			let nuevoparrafo = document.createElement('div');
+			nuevoparrafo.innerHTML = `
+			<h2>Fruta Agregada: ${fruta.nombre}</h2> 
+			<h3>Precio: ${fruta.precio}</h3>
                         <h3>Cantidad: ${fruta.cantidad}</h3>`;
-		agregando.append(nuevoparrafo);
-	}
+			agregando.append(nuevoparrafo);
+		}
 
-	console.log(frutas);
+		console.log(frutas);
+	};
+	let formularioAgregar = document.getElementById('formularioAgregar');
+	formularioAgregar.addEventListener('submit', validarFormulario);
 };
 
 const quitar = () => {
