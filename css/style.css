@@ -1,0 +1,75 @@
+body {
+	background-color: #48e865;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Header */
+.banner {
+	width: 100%;
+	height: auto;
+	margin-bottom: 0.5rem;
+}
+.bannerConFrutas {
+	margin-bottom: 2rem;
+}
+.tituloPrincipal {
+	background-color: #befc42;
+	text-align: center;
+}
+
+/* Barra de navegación */
+
+.botonera {
+	margin-bottom: 3rem;
+}
+.linkBoton {
+	text-decoration: none;
+}
+
+/* Main */
+.cardsFrutasDisponibles {
+	margin-left: 2rem;
+}
+
+.tituloFrutasDisponibles {
+	margin-bottom: 4rem;
+	text-align: center;
+}
+
+.imagenesDeFrutas {
+	width: 10rem;
+	height: 10rem;
+}
+
+.parrafoCantidad {
+	margin-bottom: 0rem;
+	font-weight: 500;
+}
+.parrafoPrecio {
+	margin-bottom: 2rem;
+}
+
+.formularioIngreso {
+	width: 20rem;
+	height: auto;
+	margin-left: 2rem;
+}
+.tituloFormulario {
+	margin-bottom: 2rem;
+}
+.botonIngresar,
+.botonCerrar {
+	margin-top: 2rem;
+	margin-right: 1rem;
+}
+
+/* Footer */
+.pieDePagina {
+	margin-top: 3rem;
+}
+.parrafoPieDePagina {
+	text-align: center;
+}

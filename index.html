@@ -4,10 +4,79 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Boosttrap -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+			crossorigin="anonymous"
+		/>
+		<!-- CSS -->
 		<link rel="stylesheet" href="./css/style.css" />
-		<title>Desafios Javascript</title>
+		<title>Control de Stock - Frutería Pepito</title>
 	</head>
 	<body>
+		<header class="cabecera">
+			<img
+				class="banner bannerSinFrutas img-fluid"
+				src="./img/banner_sin_frutas.jpg"
+				alt="banner sin frutas"
+			/>
+			<h1 class="tituloPrincipal">Control de Stock - Frutería Pepito</h1>
+			<img
+				class="banner bannerConFrutas img-fluid"
+				src="./img/banner_frutas.jpg"
+				alt="banner con frutas"
+			/>
+		</header>
+		<nav class="botonera d-flex justify-content-evenly">
+			<a href="#opIngreso">
+				<button class="botonIngreso btn btn-primary btn-sm" id="btnIngreso">
+					Ingreso de mercadería
+				</button>
+			</a>
+
+			<button class="botonEgreso btn btn-primary btn-sm" id="btnEgreso">
+				Egreso de mercadería
+			</button>
+			<button
+				class="botonModificarPrecio btn btn-primary btn-sm"
+				id="btnModificarPrecio"
+			>
+				Modificar precios
+			</button>
+			<button class="botonSalir btn btn-primary btn-sm" id="btnSalir">
+				Salir
+			</button>
+		</nav>
+
+		<main>
+			<section class="cardsFrutasDisponibles Container">
+				<h2 class="tituloFrutasDisponibles">Stock Actual de Frutas</h2>
+				<div class="row" id="stock"></div>
+			</section>
+			<section class="d-flex justify-content-between">
+				<div class="opcionIngreso" id="opIngreso"></div>
+				<p class="historialIngresadas" id="ingresadas"></p>
+			</section>
+
+			<section class="opcionEgreso" id="opEgreso"></section>
+			<section class="opcionModificar" id="opModificar"></section>
+			<section class="opcionSalir" id="opSalir"></section>
+		</main>
+
+		<footer class="pieDePagina">
+			<p class="parrafoPieDePagina">© 2022 - Mario Aguilar</p>
+		</footer>
+		<!-- Bootstrap -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+			crossorigin="anonymous"
+		></script>
+		<!-- JS -->
+		<script src="./js/stock.js"></script>
+		<script src="./js/ver_stock.js"></script>
 		<script src="./js/index.js"></script>
 	</body>
 </html>
