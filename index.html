@@ -30,39 +30,45 @@
 			/>
 		</header>
 		<nav class="botonera d-flex justify-content-evenly">
-			<a href="#opIngreso">
+			<a href="#formulario">
 				<button class="botonIngreso btn btn-primary btn-sm" id="btnIngreso">
 					Ingreso de mercadería
 				</button>
 			</a>
-
-			<button class="botonEgreso btn btn-primary btn-sm" id="btnEgreso">
-				Egreso de mercadería
-			</button>
-			<button
-				class="botonModificarPrecio btn btn-primary btn-sm"
-				id="btnModificarPrecio"
+			<a href="#formulario">
+				<button class="botonEgreso btn btn-primary btn-sm" id="btnEgreso">
+					Egreso de mercadería
+				</button>
+			</a>
+			<a href="#formulario"
+				><button
+					class="botonModificarPrecio btn btn-primary btn-sm"
+					id="btnModificarPrecio"
+				>
+					Modificar precios
+				</button></a
 			>
-				Modificar precios
-			</button>
 			<button class="botonSalir btn btn-primary btn-sm" id="btnSalir">
 				Salir
 			</button>
 		</nav>
 
 		<main>
+			<section id="mensajes"></section>
 			<section class="cardsFrutasDisponibles Container">
-				<h2 class="tituloFrutasDisponibles">Stock Actual de Frutas</h2>
+				<h2 class="tituloFrutasDisponibles" id="tituloSecundario">
+					Stock Actual de Frutas
+				</h2>
 				<div class="row" id="stock"></div>
 			</section>
 			<section class="d-flex justify-content-between">
-				<div class="opcionIngreso" id="opIngreso"></div>
-				<p class="historialIngresadas" id="ingresadas"></p>
+				<div class="opcionElegida" id="formulario"></div>
+				<p class="historial" id="cambioStock"></p>
 			</section>
 
-			<section class="opcionEgreso" id="opEgreso"></section>
+			<!-- <section class="opcionEgreso" id="opEgreso"></section>
 			<section class="opcionModificar" id="opModificar"></section>
-			<section class="opcionSalir" id="opSalir"></section>
+			<section class="opcionSalir" id="opSalir"></section> -->
 		</main>
 
 		<footer class="pieDePagina">
@@ -77,6 +83,6 @@
 		<!-- JS -->
 		<script src="./js/stock.js"></script>
 		<script src="./js/ver_stock.js"></script>
-		<script src="./js/index.js"></script>
+		<script src="./js/funciones.js"></script>
 	</body>
 </html>
