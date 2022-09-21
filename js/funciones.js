@@ -56,7 +56,7 @@ const opcionElegida = () => {
 	<input class="form-control" id="cantidadFruta" placeholder="Cantidad" type="number" />
 	<label class="form-label" for="precioFruta">Precio</label>
 	<input class="form-control" id="precioFruta" type="number" placeholder="Opción deshabilitada" disabled readonly/>
-	<input class="btn btn-primary botonIngresar" type="submit" value="Modificar Stock" />
+	<input class="btn btn-primary botonModificar" type="submit" value="Modificar Stock" />
 	<a href="#btnIngreso">
 	<button class="btn btn-primary botonCerrar" id="btnCerrar">Cerrar</button> 
 	</a>`;
