@@ -74,7 +74,7 @@ const opcionElegida = () => {
 	<input class="form-control" id="cantidadFruta" placeholder="Opción deshabilitada" type="number" disabled readonly/>
 	<label class="form-label" for="precioFruta">Precio</label>
 	<input class="form-control" id="precioFruta" type="number" placeholder="Precio"/>
-	<input class="btn btn-primary botonIngresar" type="submit" value="Modificar Precio" />
+	<input class="btn btn-primary botonModificar" type="submit" value="Modificar Precio" />
 	<a href="#btnIngreso">
 	<button class="btn btn-primary botonCerrar" id="btnCerrar">Cerrar</button> 
 	</a>`;
@@ -108,69 +108,64 @@ const opcionElegida = () => {
 		let cantidad = infoFormulario[4].value;
 		let precio = infoFormulario[6].value;
 
-		// Realizo ingreso de mercadería
+		// Realizo modificaciones de stock y/o precio
 		let stockFrutas = JSON.parse(localStorage.getItem('Stock'));
-		let precioFrutas = JSON.parse(localStorage.getItem('Stock'));
 		let validarNombre;
 
 		if (opcion === 'ingreso') {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			if (validarNombre === true) {
-				const encontrarFruta = stockFrutas.find(
-					(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
-				);
-				encontrarFruta.cantidad =
-					parseInt(encontrarFruta.cantidad) + parseInt(cantidad);
-				localStorage.setItem('Stock', JSON.stringify(stockFrutas));
-			} else {
+			while (validarNombre === false) {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
 			}
+			const encontrarFruta = stockFrutas.find(
+				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
+			);
+			encontrarFruta.cantidad =
+				parseInt(encontrarFruta.cantidad) + parseInt(cantidad);
+			//Almaceno info en el storage
+			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
 		} else if (opcion === 'egreso') {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			if (validarNombre === true) {
-				const encontrarFruta = stockFrutas.find(
-					(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
-				);
-				encontrarFruta.cantidad =
-					parseInt(encontrarFruta.cantidad) - parseInt(cantidad);
-
-				localStorage.setItem('Stock', JSON.stringify(stockFrutas));
-				// Evitar que el stock quede en negativo
-				while (encontrarFruta.cantidad < 0) {
-					alert('No puede quitar más fruta de la que hay en stock');
-					encontrarFruta.cantidad =
-						parseInt(encontrarFruta.cantidad) + parseInt(cantidad);
-					historial.innerHTML = '';
-					infoFormulario[2].value = '';
-					infoFormulario[4].value = '';
-					infoFormulario[6].value = '';
-				}
-			} else {
+			while (validarNombre === false) {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
+
+				// CORREGIR BUCLE INFINITO
 			}
-		} else if (opcion === 'cambioPrecio') {
-			validarNombre = precioFrutas.some(
+			const encontrarFruta = stockFrutas.find(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			if (validarNombre === true) {
-				const encontrarFruta = precioFrutas.find(
-					(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
-				);
-				encontrarFruta.precio = parseInt(precio);
-				localStorage.setItem('Stock', JSON.stringify(precioFrutas));
-			} else {
+			encontrarFruta.cantidad =
+				parseInt(encontrarFruta.cantidad) - parseInt(cantidad);
+
+			// Evito que el stock quede en negativo
+			while (encontrarFruta.cantidad < 0) {
+				alert('No puede quitar más fruta de la que hay en stock');
+				encontrarFruta.cantidad = 0;
+				historial.innerHTML = '';
+			}
+			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
+		} else if (opcion === 'cambioPrecio') {
+			validarNombre = stockFrutas.some(
+				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
+			);
+			while (validarNombre === false) {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
 			}
+			const encontrarFruta = stockFrutas.find(
+				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
+			);
+			encontrarFruta.precio = parseInt(precio);
+			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
 		}
 
 		// Genero historial de ingresos
@@ -232,9 +227,9 @@ const opcionElegida = () => {
 		}
 
 		// Limpio campos del formulario
-		infoFormulario[2].value = '';
-		infoFormulario[4].value = '';
-		infoFormulario[6].value = '';
+		//infoFormulario[2].value = '';
+		//infoFormulario[4].value = '';
+		//infoFormulario[6].value = '';
 	});
 };
 
