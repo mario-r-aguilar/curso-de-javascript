@@ -1,4 +1,7 @@
-const verStock = (frutas) => {
+let obtenerStock = localStorage.getItem('Stock');
+let stockStorage = JSON.parse(obtenerStock);
+
+const verStock = (stockStorage) => {
 	const stock = document.getElementById('stock');
 	frutas.forEach((fruta) => {
 		const div = document.createElement('div');
@@ -15,4 +18,4 @@ const verStock = (frutas) => {
 		stock.appendChild(div);
 	});
 };
-verStock(frutas);
+verStock(stockStorage);

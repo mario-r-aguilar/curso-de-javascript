@@ -48,4 +48,5 @@ const frutas = [
 		precio: 300,
 	},
 ];
+
 localStorage.setItem('Stock', JSON.stringify(frutas));
