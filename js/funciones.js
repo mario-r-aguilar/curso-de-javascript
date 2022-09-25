@@ -81,6 +81,7 @@ const opcionElegida = () => {
 		formulario.append(codigoFormulario);
 	} else if (opcion === 'salir') {
 		let borrarTituloSecundario = document.getElementById('tituloSecundario');
+		formulario.innerHTML = '';
 		borrarTituloSecundario.innerHTML = '';
 		let despedida = document.getElementById('mensajes');
 		let saludoDespedida = document.createElement('div');
@@ -88,6 +89,7 @@ const opcionElegida = () => {
 		<h2>Hasta Luego</h2>
 		`;
 		despedida.append(saludoDespedida);
+		return;
 	}
 
 	// Agrego funcionalidad al botón cerrar
@@ -127,6 +129,7 @@ const opcionElegida = () => {
 			);
 			encontrarFruta.cantidad =
 				parseInt(encontrarFruta.cantidad) + parseInt(cantidad);
+
 			//Almaceno info en el storage
 			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
 			obtenerDatos = localStorage.getItem('Stock');
@@ -146,7 +149,7 @@ const opcionElegida = () => {
 			encontrarFruta.cantidad =
 				parseInt(encontrarFruta.cantidad) - parseInt(cantidad);
 
-			// Evito que el stock quede en negativo
+			// Evito que se ingrese un valor mayor al stock disponible
 			while (encontrarFruta.cantidad < 0) {
 				alert('No puede quitar más fruta de la que hay en stock');
 				encontrarFruta.cantidad = 0;
@@ -177,7 +180,7 @@ const opcionElegida = () => {
 		stock.innerHTML = '';
 		verStock();
 
-		// Genero historial de ingresos
+		// Genero historial en html
 		class modificacion {
 			constructor(nombre, cantidad) {
 				this.nombre = nombre;
@@ -185,14 +188,13 @@ const opcionElegida = () => {
 				this.precio = precio;
 			}
 		}
-
 		const cambiosRecientes = [];
 
 		if (opcion === 'ingreso' || opcion === 'egreso') {
-			let cambioStock = new modificacion(nombre, cantidad, precio);
-			cambiosRecientes.push(cambioStock);
+			let cambios = new modificacion(nombre, cantidad, precio);
+			cambiosRecientes.push(cambios);
 
-			historial = document.getElementById('cambioStock');
+			historial = document.getElementById('cambios');
 			for (fruta of cambiosRecientes) {
 				if (opcion === 'ingreso') {
 					let historialReciente = document.createElement('div');
@@ -211,10 +213,10 @@ const opcionElegida = () => {
 				}
 			}
 		} else if (opcion === 'cambioPrecio') {
-			let cambioPrecios = new modificacion(nombre, cantidad, precio);
-			cambiosRecientes.push(cambioPrecios);
+			let cambios = new modificacion(nombre, cantidad, precio);
+			cambiosRecientes.push(cambios);
 
-			historial = document.getElementById('cambioStock');
+			historial = document.getElementById('cambios');
 			for (fruta of cambiosRecientes) {
 				let historialReciente = document.createElement('div');
 				historialReciente.innerHTML = `
