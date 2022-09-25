@@ -129,6 +129,7 @@ const opcionElegida = () => {
 				parseInt(encontrarFruta.cantidad) + parseInt(cantidad);
 			//Almaceno info en el storage
 			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
+			obtenerDatos = localStorage.getItem('Stock');
 		} else if (opcion === 'egreso') {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
@@ -152,6 +153,7 @@ const opcionElegida = () => {
 				historial.innerHTML = '';
 			}
 			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
+			obtenerDatos = localStorage.getItem('Stock');
 		} else if (opcion === 'cambioPrecio') {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
@@ -167,7 +169,13 @@ const opcionElegida = () => {
 			);
 			encontrarFruta.precio = parseInt(precio);
 			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
+			obtenerDatos = localStorage.getItem('Stock');
 		}
+
+		// Actualizo valores en las cards
+		actualizarDatos = JSON.parse(obtenerDatos);
+		stock.innerHTML = '';
+		verStock();
 
 		// Genero historial de ingresos
 		class modificacion {
@@ -222,29 +230,6 @@ const opcionElegida = () => {
 		infoFormulario[4].value = '';
 		infoFormulario[6].value = '';
 	});
+	return;
 };
 inicio();
-
-// let obtenerStorage = localStorage.getItem('Stock');
-// let actualizar = JSON.parse(obtenerStorage);
-// const actualizarInfo = (Storage) => {
-// 	let stock;
-// 	stock.innerHTML = '';
-// 	stock = document.getElementById('stock');
-// 	actualizar.forEach((fruta) => {
-// 		const div = document.createElement('div');
-// 		div.classList.add('cardFruta');
-// 		div.classList.add('col-lg-3');
-// 		div.classList.add('col-md-4');
-// 		div.classList.add('col-sm-6');
-// 		div.innerHTML = `
-// 		<h4>${fruta.nombre}</h4>
-// 		<img src="${fruta.img}" class="imagenesDeFrutas card border-success img-fluid" alt="${fruta.nombre}">
-// 		<p class="parrafoCantidad">Cantidad: ${fruta.cantidad}</p>
-// 		<p class="parrafoPrecio">Precio:$ ${fruta.precio}</p>
-// 		`;
-// 		stock.appendChild(div);
-// 	});
-// };
-
-// actualizarInfo(actualizar);

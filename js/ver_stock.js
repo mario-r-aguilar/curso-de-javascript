@@ -17,5 +17,6 @@ const verStock = () => {
                         `;
 		stock.appendChild(div);
 	});
+	return;
 };
 verStock();
