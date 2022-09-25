@@ -116,7 +116,7 @@ const opcionElegida = () => {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			while (validarNombre === false) {
+			while (validarNombre === false && validarNombre != '') {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
@@ -132,7 +132,7 @@ const opcionElegida = () => {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			while (validarNombre === false) {
+			while (validarNombre === false && validarNombre != '') {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
@@ -156,7 +156,7 @@ const opcionElegida = () => {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			while (validarNombre === false) {
+			while (validarNombre === false && validarNombre != '') {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
@@ -227,9 +227,9 @@ const opcionElegida = () => {
 		}
 
 		// Limpio campos del formulario
-		//infoFormulario[2].value = '';
-		//infoFormulario[4].value = '';
-		//infoFormulario[6].value = '';
+		infoFormulario[2].value = '';
+		infoFormulario[4].value = '';
+		infoFormulario[6].value = '';
 	});
 };
 
