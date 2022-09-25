@@ -120,6 +120,7 @@ const opcionElegida = () => {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
+				nombre = '';
 			}
 			const encontrarFruta = stockFrutas.find(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
@@ -136,8 +137,7 @@ const opcionElegida = () => {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
-
-				// CORREGIR BUCLE INFINITO
+				nombre = '';
 			}
 			const encontrarFruta = stockFrutas.find(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
@@ -160,6 +160,7 @@ const opcionElegida = () => {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
+				nombre = '';
 			}
 			const encontrarFruta = stockFrutas.find(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
