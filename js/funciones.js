@@ -116,7 +116,7 @@ const opcionElegida = () => {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			while (validarNombre === false && validarNombre != '') {
+			while (validarNombre === false && nombre != '') {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
@@ -132,7 +132,7 @@ const opcionElegida = () => {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			while (validarNombre === false && validarNombre != '') {
+			while (validarNombre === false && nombre != '') {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
@@ -156,7 +156,7 @@ const opcionElegida = () => {
 			validarNombre = stockFrutas.some(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			while (validarNombre === false && validarNombre != '') {
+			while (validarNombre === false && nombre != '') {
 				alert(
 					'Por favor ingrese el nombre de alguna de las frutas en stock'
 				);
@@ -177,13 +177,14 @@ const opcionElegida = () => {
 			}
 		}
 
+		const cambiosRecientes = [];
+
 		if (opcion === 'ingreso' || opcion === 'egreso') {
-			let cambioStock = new modificacion(nombre, cantidad);
-			const cambiosStockRecientes = [];
-			cambiosStockRecientes.push(cambioStock);
+			let cambioStock = new modificacion(nombre, cantidad, precio);
+			cambiosRecientes.push(cambioStock);
 
 			historial = document.getElementById('cambioStock');
-			for (fruta of cambiosStockRecientes) {
+			for (fruta of cambiosRecientes) {
 				if (opcion === 'ingreso') {
 					let historialReciente = document.createElement('div');
 					historialReciente.innerHTML = `
@@ -191,11 +192,6 @@ const opcionElegida = () => {
 					<span>Cantidad: ${fruta.cantidad}</span>
 					`;
 					historial.append(historialReciente);
-
-					localStorage.setItem(
-						'Cambios de Stock',
-						JSON.stringify(cambiosStockRecientes)
-					);
 				} else if (opcion === 'egreso') {
 					let historialReciente = document.createElement('div');
 					historialReciente.innerHTML = `
@@ -203,20 +199,14 @@ const opcionElegida = () => {
 					<span>Cantidad: ${fruta.cantidad}</span>
 					`;
 					historial.append(historialReciente);
-
-					localStorage.setItem(
-						'Cambios de Stock',
-						JSON.stringify(cambiosStockRecientes)
-					);
 				}
 			}
 		} else if (opcion === 'cambioPrecio') {
-			let cambioPrecios = new modificacion(nombre, precio);
-			const cambiosPreciosRecientes = [];
-			cambiosPreciosRecientes.push(cambioPrecios);
+			let cambioPrecios = new modificacion(nombre, cantidad, precio);
+			cambiosRecientes.push(cambioPrecios);
 
 			historial = document.getElementById('cambioStock');
-			for (fruta of cambiosPreciosRecientes) {
+			for (fruta of cambiosRecientes) {
 				let historialReciente = document.createElement('div');
 				historialReciente.innerHTML = `
 					<h6>Fruta modificada: ${fruta.nombre}</h6>
@@ -232,5 +222,28 @@ const opcionElegida = () => {
 		infoFormulario[6].value = '';
 	});
 };
-
 inicio();
+
+// let obtenerStorage = localStorage.getItem('Stock');
+// let actualizar = JSON.parse(obtenerStorage);
+// const actualizarInfo = (Storage) => {
+// 	let stock;
+// 	stock.innerHTML = '';
+// 	stock = document.getElementById('stock');
+// 	actualizar.forEach((fruta) => {
+// 		const div = document.createElement('div');
+// 		div.classList.add('cardFruta');
+// 		div.classList.add('col-lg-3');
+// 		div.classList.add('col-md-4');
+// 		div.classList.add('col-sm-6');
+// 		div.innerHTML = `
+// 		<h4>${fruta.nombre}</h4>
+// 		<img src="${fruta.img}" class="imagenesDeFrutas card border-success img-fluid" alt="${fruta.nombre}">
+// 		<p class="parrafoCantidad">Cantidad: ${fruta.cantidad}</p>
+// 		<p class="parrafoPrecio">Precio:$ ${fruta.precio}</p>
+// 		`;
+// 		stock.appendChild(div);
+// 	});
+// };
+
+// actualizarInfo(actualizar);

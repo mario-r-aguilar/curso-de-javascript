@@ -1,9 +1,9 @@
-let obtenerStock = localStorage.getItem('Stock');
-let stockStorage = JSON.parse(obtenerStock);
+let obtenerDatos = localStorage.getItem('Stock');
+let actualizarDatos = JSON.parse(obtenerDatos);
 
-const verStock = (stockStorage) => {
+const verStock = () => {
 	const stock = document.getElementById('stock');
-	frutas.forEach((fruta) => {
+	actualizarDatos.forEach((fruta) => {
 		const div = document.createElement('div');
 		div.classList.add('cardFruta');
 		div.classList.add('col-lg-3');
@@ -18,4 +18,4 @@ const verStock = (stockStorage) => {
 		stock.appendChild(div);
 	});
 };
-verStock(stockStorage);
+verStock();
