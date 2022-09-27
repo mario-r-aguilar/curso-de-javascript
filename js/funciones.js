@@ -3,6 +3,7 @@ let opcion;
 
 //Creo una estructura condicional simple y empleo un operador ternario
 const historialDeOperaciones = () => {
+	console.log('Historial de operaciones:');
 	opcion === ''
 		? console.log('El usuario no ha elegido ninguna opción')
 		: console.log('El usuario eligio una opción ', opcion);
@@ -92,8 +93,8 @@ const opcionElegida = () => {
 		formulario.append(codigoFormulario);
 	} else if (opcion === 'salir') {
 		let borrarTituloSecundario = document.getElementById('tituloSecundario');
+		historialReciente.innerHTML = '';
 		formulario.innerHTML = '';
-		historial.innerHTML = '';
 		borrarTituloSecundario.innerHTML = '';
 		let despedida = document.getElementById('mensajes');
 		let saludoDespedida = document.createElement('div');
@@ -155,16 +156,16 @@ const opcionElegida = () => {
 				);
 				nombre = '';
 			}
-			const encontrarFruta = stockFrutas.find(
+			const hallarFruta = stockFrutas.find(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			encontrarFruta.cantidad =
-				parseInt(encontrarFruta.cantidad) - parseInt(cantidad);
+			hallarFruta.cantidad =
+				parseInt(hallarFruta.cantidad) - parseInt(cantidad);
 
 			// Evito que se ingrese un valor mayor al stock disponible
-			while (encontrarFruta.cantidad < 0) {
+			while (hallarFruta.cantidad < 0) {
 				alert('No puede quitar más fruta de la que hay en stock');
-				encontrarFruta.cantidad = 0;
+				hallarFruta.cantidad = 0;
 				historial.innerHTML = '';
 			}
 			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
@@ -179,10 +180,10 @@ const opcionElegida = () => {
 				);
 				nombre = '';
 			}
-			const encontrarFruta = stockFrutas.find(
+			const ubicarFruta = stockFrutas.find(
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
-			encontrarFruta.precio = parseInt(precio);
+			ubicarFruta.precio = parseInt(precio);
 			localStorage.setItem('Stock', JSON.stringify(stockFrutas));
 			obtenerDatos = localStorage.getItem('Stock');
 		}
