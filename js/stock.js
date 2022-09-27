@@ -53,6 +53,10 @@ localStorage.setItem('Stock', JSON.stringify(frutas));
 
 const nombresFrutasDisponibles = () => {
 	const [a, b, c, d, e, f, g, h] = frutas;
-	console.log(frutas);
+	for (item of frutas) {
+		let { nombre } = item;
+		console.log(nombre);
+	}
 };
+
 nombresFrutasDisponibles();
