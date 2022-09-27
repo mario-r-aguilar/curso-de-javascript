@@ -221,7 +221,7 @@ const opcionElegida = () => {
 				let historialReciente = document.createElement('div');
 				historialReciente.innerHTML = `
 					<h6>Fruta modificada: ${fruta.nombre}</h6>
-					<span>Nuevo Precio: ${fruta.cantidad}</span>
+					<span>Nuevo Precio: ${fruta.precio}</span>
 					`;
 				historial.append(historialReciente);
 			}
