@@ -1,26 +1,37 @@
 //Funciones
 let opcion;
 
+//Creo una estructura condicional simple y empleo un operador ternario
+const historialDeOperaciones = () => {
+	opcion === ''
+		? console.log('El usuario no ha elegido ninguna opción')
+		: console.log('El usuario eligio una opción ', opcion);
+};
+
 const ingreso = () => {
 	opcion = 'ingreso';
+	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
 
 const egreso = () => {
 	opcion = 'egreso';
+	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
 
 const cambioPrecio = () => {
 	opcion = 'cambioPrecio';
+	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
 
 const salir = () => {
 	opcion = 'salir';
+	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
@@ -82,6 +93,7 @@ const opcionElegida = () => {
 	} else if (opcion === 'salir') {
 		let borrarTituloSecundario = document.getElementById('tituloSecundario');
 		formulario.innerHTML = '';
+		historial.innerHTML = '';
 		borrarTituloSecundario.innerHTML = '';
 		let despedida = document.getElementById('mensajes');
 		let saludoDespedida = document.createElement('div');
