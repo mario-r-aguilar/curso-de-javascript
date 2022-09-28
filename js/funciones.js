@@ -1,38 +1,26 @@
 //Funciones
 let opcion;
 
-//Creo una estructura condicional simple y empleo un operador ternario
-const historialDeOperaciones = () => {
-	console.log('Historial de operaciones:');
-	opcion === ''
-		? console.log('El usuario no ha elegido ninguna opción')
-		: console.log('El usuario eligio una opción ', opcion);
-};
-
 const ingreso = () => {
 	opcion = 'ingreso';
-	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
 
 const egreso = () => {
 	opcion = 'egreso';
-	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
 
 const cambioPrecio = () => {
 	opcion = 'cambioPrecio';
-	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
 
 const salir = () => {
 	opcion = 'salir';
-	historialDeOperaciones();
 	opcionElegida();
 	return;
 };
@@ -132,9 +120,10 @@ const opcionElegida = () => {
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
 			while (validarNombre === false && nombre != '') {
-				alert(
-					'Por favor ingrese el nombre de alguna de las frutas en stock'
-				);
+				Swal.fire({
+					icon: 'error',
+					text: 'Por favor ingrese el nombre de alguna de las frutas en stock',
+				});
 				nombre = '';
 			}
 			const encontrarFruta = stockFrutas.find(
@@ -151,9 +140,10 @@ const opcionElegida = () => {
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
 			while (validarNombre === false && nombre != '') {
-				alert(
-					'Por favor ingrese el nombre de alguna de las frutas en stock'
-				);
+				Swal.fire({
+					icon: 'error',
+					text: 'Por favor ingrese el nombre de alguna de las frutas en stock',
+				});
 				nombre = '';
 			}
 			const hallarFruta = stockFrutas.find(
@@ -164,7 +154,7 @@ const opcionElegida = () => {
 
 			// Evito que se ingrese un valor mayor al stock disponible
 			while (hallarFruta.cantidad < 0) {
-				alert('No puede quitar más fruta de la que hay en stock');
+				Swal.fire('No puede quitar más fruta de la que hay en stock');
 				hallarFruta.cantidad = 0;
 				historial.innerHTML = '';
 			}
@@ -175,9 +165,10 @@ const opcionElegida = () => {
 				(item) => item.nombre.toLowerCase() === nombre.toLowerCase()
 			);
 			while (validarNombre === false && nombre != '') {
-				alert(
-					'Por favor ingrese el nombre de alguna de las frutas en stock'
-				);
+				Swal.fire({
+					icon: 'error',
+					text: 'Por favor ingrese el nombre de alguna de las frutas en stock',
+				});
 				nombre = '';
 			}
 			const ubicarFruta = stockFrutas.find(

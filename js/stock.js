@@ -51,7 +51,7 @@ const frutas = [
 
 localStorage.setItem('Stock', JSON.stringify(frutas));
 
-// Muestro el listado de frutas en stock mediante la desestructuración de arrays y objetos
+// Muestro en la consola, el listado de frutas en stock mediante la desestructuración de arrays y objetos
 const nombresFrutasDisponibles = () => {
 	const [a, b, c, d, e, f, g, h] = frutas;
 	console.log('Stock Disponible:');
