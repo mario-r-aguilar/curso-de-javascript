@@ -179,11 +179,6 @@ const opcionElegida = () => {
 			obtenerDatos = localStorage.getItem('Stock');
 		}
 
-		// Actualizo valores en las cards
-		actualizarDatos = JSON.parse(obtenerDatos);
-		stock.innerHTML = '';
-		verStock();
-
 		// Genero historial en html
 		class modificacion {
 			constructor(nombre, cantidad) {
