@@ -153,3 +153,8 @@ if (opcion === 1) {
 } else if (opcion === 4) {
 	salir();
 }
+
+/*
+Comentario del tutor:
+Lo que podrías hacer es renderizar los productos desde el array, para que esten visibles todo el tiempo, y pasarle ese mismo render cada vez que se actualiza, ya sea agregando o eliminando un producto en particular
+*/
